@@ -4,7 +4,9 @@ FLAGS = -Wall -Werror -Wextra
 
 NAME = push_swap.a
 
-SRCS =	push_swap_utils.c
+SRCS =	./utils/ft_putchar.c \
+		./utils/ft_putstr.c \
+		./utils/ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -16,7 +16,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int     ft_putchar(int c);
+void     ft_putchar(int c);
+int     ft_strlen(char *str);
 void    ft_putstr(char *str);
 
 #endif
