@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/09 20:48:10 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/09 16:53:19 by marvin            #+#    #+#             */
+/*   Updated: 2026/02/09 19:59:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	verify_args(char *arg)
+char *ft_substr(char *str, long start, long len)
 {
-	char	**array_str;
-	int		i;
-
-	array_str = ft_split(arg, ' ');
-	i = 0;
-	while (array_str[i])
+	int		index;
+	char	*result;
+	
+	if (!str || len == 0)
+		return (NULL);
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+		index = 0;
+	while (index < len)
 	{
-		printf("aqui (%s)\n", array_str[i]);
-		free(array_str[i]);
-		i++;
+		result[index] = str[start];
+		start++;
+		index++;
 	}
-	return (0);
-}
-
-int main(int ac, char **av) {
-	int i;
-
-	i = 1;
-	if (ac == 1)
-		return (-1);
-	while (i < ac)
-	{
-		if (!verify_args(av[i]))
-			return (0);
-		i++;
-	}
-	return (0);
+	return (result);
 }
