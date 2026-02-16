@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/15 16:06:40 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/10 18:09:30 by marvin            #+#    #+#             */
+/*   Updated: 2026/02/15 22:28:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+int *ft_itoa(char num)
+{
+    int numlen;
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-typedef struct t_stack {
-    int number;
-    struct t_stack* next;
-} t_stack;
-
-void     ft_putchar(int c);
-int     ft_strlen(char *str);
-void    ft_putstr(char *str);
-char    **ft_split(char *str, char c);
-char    *ft_substr(char *str, long start, long len);
-int     ft_isnumber(char c);
-
-#endif
+    while (num % 10 >= 0)
+    {
+        num /= 10;
+        numlen++;
+    }
+    return (0);
+}

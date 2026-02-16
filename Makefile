@@ -9,6 +9,7 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/ft_strlen.c \
 		./utils/ft_substr.c \
 		./utils/ft_split.c \
+		./utils/ft_isnumber.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -21,10 +22,10 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) && cd ./utils && rm -rf $(OBJS)
 
 fclean:
-	rm -rf $(OBJS) $(NAME) a.out
+	rm -rf $(OBJS) $(NAME) a.out  && cd ./utils && rm -rf $(OBJS)
 
 re: fclean all
 
