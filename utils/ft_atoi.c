@@ -6,18 +6,35 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 18:09:30 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/15 22:28:16 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/16 18:14:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int *ft_itoa(char num)
-{
-    int numlen;
+#include "../push_swap.h"
 
-    while (num % 10 >= 0)
+int ft_atoi(char *numstr)
+{
+    int i;
+    int qsign;
+    int sign;
+    int result;
+    
+    if (!numstr)
+        return (-1);
+    i = 0;
+    result = 0;
+    sign = 1;
+    qsign = 0;
+    while(numstr[i] == '-' && qsign < 1)
     {
-        num /= 10;
-        numlen++;
+        qsign += 1;
+        sign *= -1;
+        i++;
     }
-    return (0);
+    while(numstr[i] >= '0' && numstr[i] <= '9')
+    {
+        result = (result * 10) + (numstr[i] - 48);
+        i++; 
+    }
+    return (result * sign);
 }
