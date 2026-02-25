@@ -10,7 +10,10 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/ft_substr.c \
 		./utils/ft_split.c \
 		./utils/ft_isnumber.c \
-		./utils/ft_atoi.c
+		./utils/ft_atoi.c \
+		./utils/add_front_list.c \
+		./utils/create_node.c \
+		./utils/add_final_list.c
 
 OBJS = $(SRCS:.c=.o)
 
