@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:58:34 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 18:12:10 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/26 22:05:03 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/07 17:05:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap.c"
 
-int	ft_putstr(char *str) 
+void    push(t_stack **stack_first, t_stack **stack_second)
 {
-	int	i;
+	t_stack	
 
-	i = 0;
-	if (str == NULL)
-		return (ft_putstr("(null)"));
-	while  (str[i] != '\0') 
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
+	if (!stack_second || !*stack_second)
+		return ;
+	
 }

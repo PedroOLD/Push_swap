@@ -13,7 +13,11 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/ft_atoi.c \
 		./utils/add_front_list.c \
 		./utils/create_node.c \
-		./utils/add_final_list.c
+		./utils/add_final_list.c \
+		./utils/ft_putnbr.c \
+		./utils/ft_putnbr_hex.c \
+		./printf/ft_printf.c \
+		./movements/swap.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/25 17:48:41 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:09:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ int main(int ac, char **av) {
 			return (0); 
 		i++;
 	}
-
 	temp = stack_a;
 	while (temp != NULL)
 	{
-		printf("aqui (%i)\n", temp->number);
+		ft_printf("aqui (%i)\n", temp->number);
 
 		temp = temp->next;
 	}

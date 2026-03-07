@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:58:34 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 18:12:10 by marvin           ###   ########.fr       */
+/*   Created: 2026/03/07 17:57:23 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/07 17:59:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_putstr(char *str) 
+int	ft_putnbr(int nb)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
-		return (ft_putstr("(null)"));
-	while  (str[i] != '\0') 
+	if (nb == -2147483648)
 	{
-		ft_putchar(str[i]);
-		i++;
+		return (write(1, "-2147483648", 11));
 	}
+	if (nb < 0)
+	{
+		nb = -nb;
+		i += write(1, "-", 1);
+	}
+	if (nb > 9)
+	{
+		i += ft_putnbr(nb / 10);
+	}
+	nb = (nb % 10) + '0';
+	i += write(1, &nb, 1);
 	return (i);
 }
