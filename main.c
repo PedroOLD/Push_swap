@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 18:09:56 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/07 18:47:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(int ac, char **av) {
 	char			**matrix_str_number;
 	t_stack			*node;
 	static t_stack	*stack_a;
-	// static t_stack	*stack_b;
+	static t_stack	*stack_b;
 	t_stack			*temp;
 
 	i = 1;
@@ -62,6 +62,7 @@ int main(int ac, char **av) {
 				current_number = ft_atoi(matrix_str_number[j]);
 				node = create_node(current_number);
 				add_final_list(&stack_a, node);
+				push(&stack_a, &stack_b);
 				j++;
 			}
 		}
@@ -73,6 +74,13 @@ int main(int ac, char **av) {
 	while (temp != NULL)
 	{
 		ft_printf("aqui (%i)\n", temp->number);
+
+		temp = temp->next;
+	}
+	temp = stack_b;
+	while (temp != NULL)
+	{
+		ft_printf("outra list (%i)\n", temp->number);
 
 		temp = temp->next;
 	}

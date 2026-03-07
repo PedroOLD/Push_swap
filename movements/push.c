@@ -6,17 +6,31 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:05:03 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 17:05:05 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/07 18:39:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.c"
+#include "../push_swap.h"
 
-void    push(t_stack **stack_first, t_stack **stack_second)
+void    push(t_stack **dest, t_stack **src)
 {
-	t_stack	
+	t_stack	*node;
 
-	if (!stack_second || !*stack_second)
+	if (!src || !*src)
 		return ;
-	
+	node = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	node->prev = NULL;
+	if (!*dest)
+	{
+		*dest = node;
+		node->next = NULL;
+	}
+	else {
+		node->next = *dest;
+		node->next->prev = node;
+		*dest = node;
+	}
 }
