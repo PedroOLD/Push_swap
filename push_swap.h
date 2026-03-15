@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 18:34:19 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/15 00:37:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ int     ft_atoi(char *numstr);
 int		ft_putnbr(int nb);
 int		ft_putnbr_hexa(unsigned long nb, char c, unsigned int dig);
 int		ft_printf(const char *str, ...);
+void	print_list(t_stack **stack);
 t_stack *create_node(int number);
 void	add_front_list(t_stack **stack, t_stack *node);
 void    add_final_list(t_stack **stack, t_stack *node);
 void    swap_stack(t_stack **stack);
 void    push(t_stack **dest, t_stack **src);
+void	rotate_stack(t_stack **stack);
+void	rotate_reverse_stack(t_stack **stack);
 
 #endif

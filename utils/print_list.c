@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_node.c                                      :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 20:17:06 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/14 16:37:28 by marvin           ###   ########.fr       */
+/*   Created: 2026/03/08 12:26:34 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/14 20:56:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack    *create_node(int number)
+void	print_list(t_stack **stack)
 {
-    t_stack *new_node;
+	t_stack *temp;
 
-    new_node = (t_stack *)malloc(sizeof(t_stack));
-    if (!new_node)
-        return NULL;
-    new_node->number = number;
-    new_node->next = NULL;
-    new_node->prev = NULL;
-    return (new_node);
+	temp = *stack;
+	while (temp)
+	{
+		ft_printf("list (%i) \n", temp->number);
+		if (temp->next == NULL)
+			break ;
+		temp = temp->next;
+	}
 }

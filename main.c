@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/07 18:47:54 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/15 00:39:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ int main(int ac, char **av) {
 	char			**matrix_str_number;
 	t_stack			*node;
 	static t_stack	*stack_a;
-	static t_stack	*stack_b;
-	t_stack			*temp;
+	// static t_stack	*stack_b;
 
+	stack_a = NULL;
+	// stack_b = NULL;
 	i = 1;
 	if (ac == 1)
 		return (-1);
@@ -62,7 +63,6 @@ int main(int ac, char **av) {
 				current_number = ft_atoi(matrix_str_number[j]);
 				node = create_node(current_number);
 				add_final_list(&stack_a, node);
-				push(&stack_a, &stack_b);
 				j++;
 			}
 		}
@@ -70,19 +70,7 @@ int main(int ac, char **av) {
 			return (0); 
 		i++;
 	}
-	temp = stack_a;
-	while (temp != NULL)
-	{
-		ft_printf("aqui (%i)\n", temp->number);
-
-		temp = temp->next;
-	}
-	temp = stack_b;
-	while (temp != NULL)
-	{
-		ft_printf("outra list (%i)\n", temp->number);
-
-		temp = temp->next;
-	}
+	rotate_stack(&stack_a);
+	print_list(&stack_a);
 	return (0);
 }
