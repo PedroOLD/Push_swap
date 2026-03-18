@@ -6,23 +6,24 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/18 16:07:43 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:13:32 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
-typedef struct t_stack {
-	int 			number;
-	struct t_stack*	next;
-	struct t_stack*	prev;
-} t_stack;
+typedef	struct	t_stack
+{
+	int				number;
+	struct	t_stack *	next;
+	struct	t_stack *	prev;
+}	t_stack;
 
 int     ft_putchar(char c);
 int     ft_strlen(char *str);
