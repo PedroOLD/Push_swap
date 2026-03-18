@@ -22,6 +22,7 @@ SRCS =	./utils/ft_putchar.c \
 		./movements/push.c \
 		./movements/reverse.c \
 		./movements/rotate.c \
+		./push_swap.c
 
 OBJS = $(SRCS:.c=.o)
 

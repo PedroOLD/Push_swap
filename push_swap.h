@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/15 00:37:44 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/18 16:07:43 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void    swap_stack(t_stack **stack);
 void    push(t_stack **dest, t_stack **src);
 void	rotate_stack(t_stack **stack);
 void	rotate_reverse_stack(t_stack **stack);
+void	push_swap(t_stack **stack_a, t_stack **stack_b);
 
 #endif

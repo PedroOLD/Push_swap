@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/15 00:39:03 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/18 16:09:50 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,39 +38,43 @@ static int	isvalid_arg(char *arg)
 	return (1);
 }
 
-int main(int ac, char **av) {
-	int 			i;
-	int				j;
-	int				current_number;
-	char			**matrix_str_number;
-	t_stack			*node;
+static void	add_args_stack(char *str, t_stack **stack)
+{
+	int		i;
+	char	**matrix_str_number;
+	int		current_number;
+	t_stack	*node;
+
+	i = 0;
+	matrix_str_number = ft_split(str, ' ');
+	while (matrix_str_number[i] != NULL)
+	{
+		current_number = ft_atoi(matrix_str_number[i]);
+		node = create_node(current_number);
+		add_final_list(stack, node);
+		i++;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	int				i;
 	static t_stack	*stack_a;
-	// static t_stack	*stack_b;
+	static t_stack	*stack_b;
 
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	i = 1;
 	if (ac == 1)
 		return (-1);
 	while (i < ac)
 	{
 		if (isvalid_arg(av[i]))
-		{
-			j = 0;
-			matrix_str_number = ft_split(av[i], ' ');
-			while (matrix_str_number[j] != NULL)
-			{
-				current_number = ft_atoi(matrix_str_number[j]);
-				node = create_node(current_number);
-				add_final_list(&stack_a, node);
-				j++;
-			}
-		}
+			add_args_stack(av[i], &stack_a);
 		else
-			return (0); 
+			return (0);
 		i++;
 	}
-	rotate_stack(&stack_a);
-	print_list(&stack_a);
+	push_swap(&stack_a, &stack_b);
 	return (0);
 }
