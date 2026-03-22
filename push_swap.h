@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/18 17:13:32 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/22 11:45:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 typedef	struct	t_stack
 {
 	int				number;
+	int				was_used;
+	int				index_node;
 	struct	t_stack *	next;
 	struct	t_stack *	prev;
 }	t_stack;
@@ -39,8 +41,10 @@ void	print_list(t_stack **stack);
 t_stack *create_node(int number);
 void	add_front_list(t_stack **stack, t_stack *node);
 void    add_final_list(t_stack **stack, t_stack *node);
+void	add_index_node(t_stack **stack);
 void    swap_stack(t_stack **stack);
 void    push(t_stack **dest, t_stack **src);
+int		stack_size(t_stack **stack);
 void	rotate_stack(t_stack **stack);
 void	rotate_reverse_stack(t_stack **stack);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/18 16:09:50 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/22 13:26:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ static int	isvalid_arg(char *arg)
 	while (array_str[i])
 	{
 		j = 0;
-		while (array_str[i][j] != '\0')
+		if (array_str[i][j] == '-' || array_str[i][j] == '+')
+			j++;
+		if (!array_str[i][j])
+			return (0);
+		while (array_str[i][j])
 		{
-			if (ft_isnumber(array_str[i][j]))
-				j++;
-			else
+			if (!ft_isnumber(array_str[i][j]))
 			{
-				free(array_str[i]);
+				free(array_str);
 				return (0);
 			}
+			j++;
 		}
 		i++;
 	}
@@ -75,6 +78,8 @@ int	main(int ac, char **av)
 			return (0);
 		i++;
 	}
+	add_index_node(&stack_a);
 	push_swap(&stack_a, &stack_b);
+	print_list(&stack_a);
 	return (0);
 }
