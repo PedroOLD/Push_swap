@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:57:59 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/03/23 13:02:28 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/23 17:47:59 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 	int		j;
 
+	size = stack_size(stack_a);
 	max_bits = counter_max_bits(stack_a);
+	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
