@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/23 12:57:59 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/03/23 13:02:28 by pdo-sant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 static void	do_pb(t_stack **a, t_stack **b)
@@ -18,6 +30,18 @@ static void	do_ra(t_stack **a)
 	write(1, "ra\n", 3);
 }
 
+static int	counter_max_bits(t_stack **stack)
+{
+	int	max_bits;
+	int	size;
+
+	size = stack_size(stack);
+	max_bits = 0;
+	while ((size - 1) >> max_bits)
+		max_bits++;
+	return (max_bits);
+}
+
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
@@ -26,12 +50,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 	int		j;
 
-	size = stack_size(stack_a);
-	ft_printf("tamanhoo lista (%i)", size);
-	max_bits = 0;
-	while ((size - 1) >> max_bits)
-		max_bits++;
-	i = 0;
+	max_bits = counter_max_bits(stack_a);
 	while (i < max_bits)
 	{
 		j = 0;

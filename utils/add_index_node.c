@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_index_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 21:45:44 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 11:13:12 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:29:35 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 void	add_index_node(t_stack **stack)
 {
 	t_stack	*temp;
-	t_stack	*min_node;
+	t_stack	*min_n;
 	int		index;
 
-	if(!stack || !*stack)
+	if (!stack || !*stack)
 		return ;
 	index = 0;
-	while (1) {
+	while (1)
+	{
 		temp = *stack;
-		min_node = NULL;
+		min_n = NULL;
 		while (temp)
 		{
-			if(!temp->was_used && (!min_node || temp->number < min_node->number))
-				min_node = temp;
+			if (!temp->was_used && (!min_n || temp->number < min_n->number))
+				min_n = temp;
 			temp = temp->next;
 		}
-
-		if (!min_node)
+		if (!min_n)
 			break ;
-		min_node->was_used = 1;
-		min_node->index_node = index;
+		min_n->was_used = 1;
+		min_n->index_node = index;
 		index++;
 	}
 }

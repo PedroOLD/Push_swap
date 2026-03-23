@@ -6,26 +6,26 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:53:44 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/14 17:13:20 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:23:48 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    add_final_list(t_stack **stack, t_stack *node)
+void	add_final_list(t_stack **stack, t_stack *node)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
-    if(node == NULL)
-        return;
-    if(*stack == NULL)
-    {
-        *stack = node;
-        return ;
-    }
-    temp = *stack;
-    while (temp->next != NULL)    
-        temp = temp->next;
-    temp->next = node;
-    node->prev = temp;
+	if (node == NULL)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		return ;
+	}
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = node;
+	node->prev = temp;
 }

@@ -6,11 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:48:09 by marvin            #+#    #+#             */
-/*   Updated: 2026/02/10 12:51:00 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:08:37 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isnumber(char c)
+int	ft_isnumber(char c)
 {
-    return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }

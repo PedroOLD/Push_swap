@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 12:26:34 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 10:51:28 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:32:19 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_list(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	while (temp)

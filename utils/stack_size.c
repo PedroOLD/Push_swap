@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 11:38:58 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 11:45:35 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:37:07 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	stack_size(t_stack **stack)
 {
 	int		count;
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	count = 0;

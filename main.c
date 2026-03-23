@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 13:26:14 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 10:42:19 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,5 @@ int	main(int ac, char **av)
 	}
 	add_index_node(&stack_a);
 	push_swap(&stack_a, &stack_b);
-	print_list(&stack_a);
 	return (0);
 }
