@@ -6,38 +6,49 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/23 10:42:19 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:52:24 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	is_valid_number(char *str)
+{
+	int	j;
+
+	j = 0;
+	if (str[j] == '-' || str[j] == '+')
+		j++;
+	if (!str[j])
+		return (0);
+	while (str[j])
+	{
+		if (!ft_isnumber(str[j]))
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
 static int	isvalid_arg(char *arg)
 {
 	char	**array_str;
 	int		i;
-	int		j;
 
 	array_str = ft_split(arg, ' ');
+	if (!array_str)
+		return (0);
 	i = 0;
 	while (array_str[i])
 	{
-		j = 0;
-		if (array_str[i][j] == '-' || array_str[i][j] == '+')
-			j++;
-		if (!array_str[i][j])
-			return (0);
-		while (array_str[i][j])
+		if (!is_valid_number(array_str[i]))
 		{
-			if (!ft_isnumber(array_str[i][j]))
-			{
-				free(array_str);
-				return (0);
-			}
-			j++;
+			free_array(array_str);
+			return (0);
 		}
 		i++;
 	}
+	free_array(array_str);
 	return (1);
 }
 
@@ -50,12 +61,27 @@ static void	add_args_stack(char *str, t_stack **stack)
 
 	i = 0;
 	matrix_str_number = ft_split(str, ' ');
+	if (!matrix_str_number)
+		return ;
 	while (matrix_str_number[i] != NULL)
 	{
 		current_number = ft_atoi(matrix_str_number[i]);
 		node = create_node(current_number);
 		add_final_list(stack, node);
 		i++;
+	}
+	free_array(matrix_str_number);
+}
+
+static void	free_stack(t_stack **stack)
+{
+	t_stack	*temp;
+
+	while (*stack)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
 	}
 }
 
@@ -75,10 +101,15 @@ int	main(int ac, char **av)
 		if (isvalid_arg(av[i]))
 			add_args_stack(av[i], &stack_a);
 		else
+		{
+			free_stack(&stack_a);
 			return (0);
+		}
 		i++;
 	}
 	add_index_node(&stack_a);
 	push_swap(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

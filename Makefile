@@ -1,8 +1,8 @@
 CC = cc 
 
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall -Werror -Wextra -g
 
-NAME = push_swap.a
+NAME = push_swap
 
 SRCS =	./utils/ft_putchar.c \
 		./utils/ft_putstr.c \
@@ -19,22 +19,24 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/add_index_node.c \
 		./utils/print_list.c \
 		./utils/stack_size.c \
+		./utils/ft_free_array.c \
 		./printf/ft_printf.c \
 		./movements/swap.c \
 		./movements/push.c \
 		./movements/reverse.c \
 		./movements/rotate.c \
+		./main.c \
 		./push_swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME): $(OBJS)
-	ar rcs $@ $(OBJS)
-
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
-
 all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $@
+
+.o: .c
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS) && cd ./utils && rm -rf $(OBJS)

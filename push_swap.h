@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/23 13:20:48 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:52:00 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int		stack_size(t_stack **stack);
 void	rotate_stack(t_stack **stack);
 void	rotate_reverse_stack(t_stack **stack);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
+void	free_array(char **array);
 
 #endif
