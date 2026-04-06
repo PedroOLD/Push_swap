@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_array.c                                    :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 19:21:33 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/06 16:50:21 by pdo-sant         ###   ########.fr       */
+/*   Created: 2026/04/06 17:21:13 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/04/06 17:26:29 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	free_array(char **array)
+void	print_error(int i)
 {
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
+	write(i, "Error\n", 7);
+	exit(1);
 }

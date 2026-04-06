@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 23:13:27 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/25 11:52:00 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/06 17:27:42 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int		ft_atoi(char *numstr);
 int		ft_putnbr(int nb);
 int		ft_putnbr_hexa(unsigned long nb, char c, unsigned int dig);
 int		ft_printf(const char *str, ...);
+int		validation_number_repert(int current_number, t_stack **stack);
 void	print_list(t_stack **stack);
+void	free_stack(t_stack **stack);
 t_stack	*create_node(int number);
 void	add_front_list(t_stack **stack, t_stack *node);
 void	add_final_list(t_stack **stack, t_stack *node);
@@ -49,5 +51,6 @@ void	rotate_stack(t_stack **stack);
 void	rotate_reverse_stack(t_stack **stack);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	free_array(char **array);
+void	print_error(int i);
 
 #endif

@@ -20,6 +20,9 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/print_list.c \
 		./utils/stack_size.c \
 		./utils/ft_free_array.c \
+		./utils/free_stack.c \
+		./utils/print_error.c \
+		./utils/validation_number_repet.c \
 		./printf/ft_printf.c \
 		./movements/swap.c \
 		./movements/push.c \

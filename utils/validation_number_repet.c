@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_array.c                                    :+:      :+:    :+:   */
+/*   validation_number_repet.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 19:21:33 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/06 16:50:21 by pdo-sant         ###   ########.fr       */
+/*   Created: 2026/04/06 15:59:46 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/04/06 16:50:58 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	free_array(char **array)
+int	validation_number_repert(int current_number, t_stack **stack)
 {
-	int	i;
+	t_stack	*temp;
 
-	i = 0;
-	while (array[i])
+	temp = *stack;
+	while (temp)
 	{
-		free(array[i]);
-		i++;
+		if (temp->number == current_number)
+			return (1);
+		temp = temp->next;
 	}
-	free(array);
+	return (0);
 }

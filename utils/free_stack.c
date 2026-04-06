@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_array.c                                    :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 19:21:33 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/06 16:50:21 by pdo-sant         ###   ########.fr       */
+/*   Created: 2026/04/06 16:33:10 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/04/06 16:58:58 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	free_array(char **array)
+void	free_stack(t_stack **stack)
 {
-	int	i;
+	t_stack	*temp;
 
-	i = 0;
-	while (array[i])
+	while (*stack)
 	{
-		free(array[i]);
-		i++;
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
 	}
-	free(array);
 }

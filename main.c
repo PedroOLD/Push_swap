@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/25 11:52:24 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/06 17:27:00 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	isvalid_arg(char *arg)
 	return (1);
 }
 
-static void	add_args_stack(char *str, t_stack **stack)
+static void	add_args_stack(char *str, t_stack **stack, t_stack **stack_b)
 {
 	int		i;
 	char	**matrix_str_number;
@@ -66,23 +66,18 @@ static void	add_args_stack(char *str, t_stack **stack)
 	while (matrix_str_number[i] != NULL)
 	{
 		current_number = ft_atoi(matrix_str_number[i]);
+		if (validation_number_repert(current_number, stack))
+		{
+			free_array(matrix_str_number);
+			free_stack(stack);
+			free_stack(stack_b);
+			print_error(2);
+		}
 		node = create_node(current_number);
 		add_final_list(stack, node);
 		i++;
 	}
 	free_array(matrix_str_number);
-}
-
-static void	free_stack(t_stack **stack)
-{
-	t_stack	*temp;
-
-	while (*stack)
-	{
-		temp = *stack;
-		*stack = (*stack)->next;
-		free(temp);
-	}
 }
 
 int	main(int ac, char **av)
@@ -99,17 +94,16 @@ int	main(int ac, char **av)
 	while (i < ac)
 	{
 		if (isvalid_arg(av[i]))
-			add_args_stack(av[i], &stack_a);
+			add_args_stack(av[i], &stack_a, &stack_b);
 		else
 		{
 			free_stack(&stack_a);
-			return (0);
+			free_stack(&stack_b);
+			print_error(2);
 		}
 		i++;
 	}
 	add_index_node(&stack_a);
 	push_swap(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
 	return (0);
 }
