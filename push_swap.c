@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:57:59 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 19:13:06 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/07 19:23:04 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,37 @@ static int	counter_max_bits(t_stack **stack)
 	return (max_bits);
 }
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b)
+static void	radix_sort(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
 	int		max_bits;
 	int		size;
 	int		i;
 	int		j;
+
+	size = stack_size(a);
+	max_bits = counter_max_bits(a);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j++ < size)
+		{
+			temp = *a;
+			if (((temp->index_node >> i) & 1))
+				do_ra(a);
+			else
+				do_pb(a, b);
+		}
+		while (*b)
+			do_pa(a, b);
+		i++;
+	}
+}
+
+void	push_swap(t_stack **stack_a, t_stack **stack_b)
+{
+	int	size;
 
 	size = stack_size(stack_a);
 	if (size == 3)
@@ -40,21 +64,5 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (size == 5)
 		return (sort_five(stack_a, stack_b));
-	max_bits = counter_max_bits(stack_a);
-	i = 0;
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j++ < size)
-		{
-			temp = *stack_a;
-			if (((temp->index_node >> i) & 1))
-				do_ra(stack_a);
-			else
-				do_pb(stack_a, stack_b);
-		}
-		while (*stack_b)
-			do_pa(stack_a, stack_b);
-		i++;
-	}
+	radix_sort(stack_a, stack_b);
 }
