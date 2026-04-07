@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   find_min_pos.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 18:03:23 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 17:34:54 by pdo-sant         ###   ########.fr       */
+/*   Created: 2026/04/07 19:10:30 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/04/07 19:10:52 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_stack(t_stack **stack)
-{
-	t_stack	*first_node;
-	t_stack	*second_node;
 
-	if (!stack || !*stack || !((*stack)->next))
-		return ;
-	first_node = *stack;
-	second_node = first_node->next;
-	first_node->next = second_node->next;
-	if (second_node->next)
-		second_node->next->prev = first_node;
-	second_node->next = first_node;
-	second_node->prev = NULL;
-	first_node->prev = second_node;
-	*stack = second_node;
+static int	find_min_pos(t_stack **a)
+{
+	t_stack	*tmp;
+	int		min;
+	int		pos;
+	int		i;
+
+	tmp = *a;
+	min = tmp->number;
+	pos = 0;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->number < min)
+		{
+			min = tmp->number;
+			pos = i;
+		}
+		i++;
+		tmp = tmp->next;
+	}
+	return (pos);
 }

@@ -6,28 +6,16 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:52:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/06 17:27:00 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:31:43 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_valid_number(char *str)
+static void	free_stacks(t_stack **stack_a, t_stack **stack_b)
 {
-	int	j;
-
-	j = 0;
-	if (str[j] == '-' || str[j] == '+')
-		j++;
-	if (!str[j])
-		return (0);
-	while (str[j])
-	{
-		if (!ft_isnumber(str[j]))
-			return (0);
-		j++;
-	}
-	return (1);
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
 
 static int	isvalid_arg(char *arg)
@@ -35,6 +23,8 @@ static int	isvalid_arg(char *arg)
 	char	**array_str;
 	int		i;
 
+	if (arg == NULL)
+		print_error(2);
 	array_str = ft_split(arg, ' ');
 	if (!array_str)
 		return (0);
@@ -97,13 +87,13 @@ int	main(int ac, char **av)
 			add_args_stack(av[i], &stack_a, &stack_b);
 		else
 		{
-			free_stack(&stack_a);
-			free_stack(&stack_b);
+			free_stacks(&stack_a, &stack_b);
 			print_error(2);
 		}
 		i++;
 	}
 	add_index_node(&stack_a);
 	push_swap(&stack_a, &stack_b);
+	free_stacks(&stack_a, &stack_b);
 	return (0);
 }

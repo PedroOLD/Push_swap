@@ -6,29 +6,11 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:57:59 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/03/23 17:47:59 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/07 19:13:06 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-static void	do_pb(t_stack **a, t_stack **b)
-{
-	push(b, a);
-	write(1, "pb\n", 3);
-}
-
-static void	do_pa(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	write(1, "pa\n", 3);
-}
-
-static void	do_ra(t_stack **a)
-{
-	rotate_stack(a);
-	write(1, "ra\n", 3);
-}
 
 static int	counter_max_bits(t_stack **stack)
 {
@@ -51,6 +33,13 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	int		j;
 
 	size = stack_size(stack_a);
+	if (size == 3)
+	{
+		free_stack(stack_b);
+		return (sort_three(stack_a));
+	}
+	if (size == 5)
+		return (sort_five(stack_a, stack_b));
 	max_bits = counter_max_bits(stack_a);
 	i = 0;
 	while (i < max_bits)

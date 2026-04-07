@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   is_valid_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 18:03:23 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 17:34:54 by pdo-sant         ###   ########.fr       */
+/*   Created: 2026/04/07 18:00:17 by pdo-sant          #+#    #+#             */
+/*   Updated: 2026/04/07 18:00:46 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_stack(t_stack **stack)
+int	is_valid_number(char *str)
 {
-	t_stack	*first_node;
-	t_stack	*second_node;
+	int	j;
 
-	if (!stack || !*stack || !((*stack)->next))
-		return ;
-	first_node = *stack;
-	second_node = first_node->next;
-	first_node->next = second_node->next;
-	if (second_node->next)
-		second_node->next->prev = first_node;
-	second_node->next = first_node;
-	second_node->prev = NULL;
-	first_node->prev = second_node;
-	*stack = second_node;
+	j = 0;
+	if (str[j] == '-' || str[j] == '+')
+		j++;
+	if (!str[j])
+		return (0);
+	while (str[j])
+	{
+		if (!ft_isnumber(str[j]))
+			return (0);
+		j++;
+	}
+	return (1);
 }
