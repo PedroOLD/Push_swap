@@ -6,14 +6,13 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 19:10:30 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 19:10:52 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/08 08:47:17 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
-static int	find_min_pos(t_stack **a)
+int	find_min_pos(t_stack **a)
 {
 	t_stack	*tmp;
 	int		min;

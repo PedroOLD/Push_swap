@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:41:48 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 18:42:30 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/08 08:50:03 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	do_sa(t_stack **a)
 {
-    swap_stack(a);
-    write(1, "sa\n", 3);
+	swap_stack(a);
+	write(1, "sa\n", 3);
 }
