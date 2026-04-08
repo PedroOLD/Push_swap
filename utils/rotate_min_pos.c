@@ -6,13 +6,13 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 19:13:15 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/08 08:48:35 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/08 09:07:02 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	rotate_to_min(t_stack **a)
+void	rotate_to_min(t_stack **a)
 {
 	int	min_pos;
 	int	i;
@@ -20,11 +20,13 @@ static void	rotate_to_min(t_stack **a)
 	min_pos = find_min_pos(a);
 	i = 0;
 	if (min_pos <= stack_size(a) / 2)
+	{
 		while (i++ < min_pos)
 		{
 			rotate_stack(a);
 			write(1, "ra\n", 3);
 		}
+	}
 	else
 	{
 		min_pos = stack_size(a) - min_pos;

@@ -6,13 +6,13 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:36:13 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/08 08:49:20 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/08 09:00:59 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	do_pa(t_stack **a, t_stack **b)
+void	do_pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pa\n", 3);

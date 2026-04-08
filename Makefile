@@ -1,6 +1,6 @@
 CC = cc 
 
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra
 
 NAME = push_swap
 
@@ -24,19 +24,21 @@ SRCS =	./utils/ft_putchar.c \
 		./utils/print_error.c \
 		./utils/validation_number_repet.c \
 		./utils/is_valid_number.c \
-		./utils/do_pb.c \
-		./utils/do_pa.c \
-		./utils/do_sa.c \
-		./utils/do_rra.c \
-		./utils/sort.c \
-		./utils/sort_four.c \
-		./utils/find_min_sort.c \
+		./sort/sort_four.c \
+		./sort/sort_three.c \
+		./sort/sort_five.c \
+		./utils/find_min_pos.c \
 		./utils/rotate_min_pos.c \
 		./printf/ft_printf.c \
 		./movements/swap.c \
 		./movements/push.c \
 		./movements/reverse.c \
 		./movements/rotate.c \
+		./movements/do_pb.c \
+		./movements/do_pa.c \
+		./movements/do_sa.c \
+		./movements/do_rra.c \
+		./movements/do_ra.c \
 		./main.c \
 		./push_swap.c \
 

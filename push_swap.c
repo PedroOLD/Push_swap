@@ -6,7 +6,7 @@
 /*   By: pdo-sant <pdo-sant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:57:59 by pdo-sant          #+#    #+#             */
-/*   Updated: 2026/04/07 19:23:04 by pdo-sant         ###   ########.fr       */
+/*   Updated: 2026/04/08 09:02:31 by pdo-sant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	if (size == 3)
 	{
 		free_stack(stack_b);
-		return (sort_three(stack_a));
+		sort_three(stack_a);
 	}
 	if (size == 5)
-		return (sort_five(stack_a, stack_b));
+		sort_five(stack_a, stack_b);
 	radix_sort(stack_a, stack_b);
 }
